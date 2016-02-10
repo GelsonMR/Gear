@@ -1,0 +1,6 @@
+<ul>
+	<li style="padding: 6px 10px;" ng-if="!filteredList.length">
+		{{gearEmptyMessage || 'Nenhum item encontrado'}}
+	</li>
+	<gear-main-menu-item ng-repeat="item in filteredList = (gearList | gearMainMenu:gearType:gearMainProp | orderBy:gearOrder:(gearType == 'history'))" gear-item="item" class="menu-prim-info" gear-type="gearType" gear-prim-info="gearType == 'top10' ? $index + 1 : item[gearPrimInfo]" gear-on-select="gearOnSelect"></gear-main-menu-item>
+</ul>

@@ -1,0 +1,10 @@
+<div class="gear-form-group">
+	<input id="{{gearId}}" type="text" class="gear-form-control" ng-class="{'gear-error': isInvalid() || input.$dirty && input.$error.required}" ng-model="picker.text" ng-focus="openPicker()" gear-form-control gear-mask-time gear-format-time="picker.model" gear-format-error="picker.invalid" name="{{gearName}}" ng-required="required">
+	<label for="{{gearId}}" class="gear-form-floating-label">{{gearLabel}}</label>
+	<!-- <div class="gear-message">{{gearMin}}</div> -->
+	<div class="gear-message" ng-if="input.$dirty && input.$error">
+		<span ng-if="input.$dirty && input.$error.required">Campo obrigatório</span>
+		<span ng-if="input.$dirty && input.$error.gearError && !input.$error.required">{{picker.invalid}}</span>
+	</div>
+	<gear-time-picker ng-model="picker.model" gear-select-minute="closePicker()" gear-error="isInvalid()" gear-error-message="picker.invalid" ng-class="{'gear-error': isInvalid() || input.$dirty && input.$error.required}" ng-if="gearShow"></gear-time-picker>
+</div>

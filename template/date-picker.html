@@ -1,0 +1,30 @@
+<div class="header">
+	<div class="error-message" ng-if="gearError || !ngModel">{{gearErrorMessage || 'Selecione uma data'}}</div>
+	<div class="date-info" ng-if="!gearError">
+		<div class="year" ng-if="selectedYear()">{{selectedYear()}}</div>
+		<div class="date"><span ng-click="goToSelected()">{{selectedDate()}}</span></div>
+	</div>
+</div>
+<div class="body">
+	<div class="calendar">
+		<div class="month-control" tabindex="0" ng-keydown="monthControl($event)">
+			<div class="last-month">
+				<button type="button" class="gear-mt gear-btn gear-smlr gear-flat gear-icon" ng-click="goPrev()" tabindex="-1"><i class="material-icons">navigate_before</i></button>
+			</div>
+			<div class="month-label">{{getViewCalendar()}}</div>
+			<div class="next-month">
+				<button type="button" class="gear-mt gear-btn gear-smlr gear-flat gear-icon" ng-click="goNext()" tabindex="-1"><i class="material-icons">navigate_next</i></button>
+			</div>
+		</div>
+		<div class="week-label">
+			<div ng-repeat="dayLabel in weekDays track by $index">{{dayLabel.substring(0,1)}}</div>
+		</div>
+		<div class="month-weeks">
+			<div class="week" ng-repeat="week in weeks">
+				<div class="day" ng-class="{'current-month': day.getMonth() == activeMonth.getMonth(), 'last-month': day.getFullYear() < activeMonth.getFullYear() || (day.getMonth() < activeMonth.getMonth() && day.getFullYear() == activeMonth.getFullYear()), 'next-month': day.getFullYear() > activeMonth.getFullYear() ||  (day.getMonth() > activeMonth.getMonth() && day.getFullYear() == activeMonth.getFullYear())}" ng-repeat="day in week track by $index">
+					<button type="button" ng-class="{'today': isToday(day), 'selected': isSelectedDay(day)}" class="day-button" ng-click="selectDay(day)" ng-if="day.getMonth() == activeMonth.getMonth()" ng-keydown="dayControl($event)" ng-disabled="invalidDate(day)" tabindex="-1">{{day.getDate()}}</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

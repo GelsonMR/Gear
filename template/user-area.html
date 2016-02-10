@@ -1,0 +1,13 @@
+<div class="gear-user-name">{{gearPrimaryInfo}}<div class="cod-filial">{{gearSecondaryInfo}}</div></div>
+<i class="material-icons down-arrow">arrow_drop_down</i>
+<div class="gear-user-pic">{{gearPrimaryInfo.slice(0,1)}}</div>
+<div class="gear-custom-select" ng-class="{'gear-open': openMenu}">
+	<ul ng-repeat="list in gearOptions">
+		<li ng-repeat="option in list">
+			<div id="option-fav" class="gear-select-option" ng-click="option.action && option.action()">
+				<i class="material-icons gear-icon">{{option.icon}}</i>
+				{{option.name}}
+			</div>
+		</li>
+	</ul>
+</div>

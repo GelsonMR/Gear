@@ -1,0 +1,10 @@
+<div class="gear-form-group">
+	<input id="{{gearId}}" type="text" class="gear-form-control" ng-class="{'gear-error': input.$dirty && input.$error.required || input.$error.gearError}" ng-model="picker.text" ng-focus="openPicker()" gear-form-control gear-mask-date gear-format-date="picker.model" gear-min="gearMin" gear-max="gearMax" gear-format-error="picker.invalid" name="{{gearName}}" ng-required="required">
+	<label for="{{gearId}}" class="gear-form-floating-label">{{gearLabel}}</label>
+	<!-- <div class="gear-message">{{gearMin}}</div> -->
+	<div class="gear-message" ng-if="input.$dirty && input.$error.required || input.$error.gearError">
+		<span ng-if="input.$dirty && input.$error.required">Campo obrigatório</span>
+		<span ng-if="input.$error.gearError && !input.$error.required">{{picker.invalid.message}}</span>
+	</div>
+	<gear-date-picker ng-model="picker.model" gear-select="closePicker()" gear-error="input.$dirty && input.$error.required || input.$error.gearError" gear-error-message="picker.invalid.message" gear-min="gearMin" gear-max="gearMax" ng-class="{'gear-error': input.$dirty && input.$error.required || input.$error.gearError}" ng-if="gearShow"></gear-date-picker>
+</div>
