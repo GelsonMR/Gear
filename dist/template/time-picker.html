@@ -1,0 +1,31 @@
+<div class="header">
+	<div class="error-message" ng-if="gearError" style="font-size: 16px;">{{gearErrorMessage}}</div>
+	<div ng-if="!gearError && !date" style="font-size: 20px;">
+		Selecione uma hora
+	</div>
+	<div class="time-info" ng-if="!gearError && !!date">
+		<div class="time">
+			<div class="time-part selected-hour" ng-class="{'active': activeSelection == 'hours'}" ng-focus="activeHours()" ng-keydown="changeHour($event)" tabindex="0">{{date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}}</div>
+			:
+			<div class="time-part selected-minute" ng-class="{'active': activeSelection == 'minutes'}" ng-focus="activeMinutes()" ng-keydown="changeMinute($event)" tabindex="0">{{date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}}</div>
+		</div>
+	</div>
+</div>
+<div class="body">
+	<div class="clock {{activeSelection}}" ng-class="hourType == 12 ? 'hour-12' : 'hour-24'">
+		<div class="sel-cont" ng-style="{'transform': 'rotate(' + actualRotate + 'deg)', 'top': (activeSelection == 'hours' ? selectedHourTop(date.getHours()) : '')}" ng-if="!gearError && !!date">
+			<div class="sel-cont-ball" ng-class="{'precise-minute': date.getMinutes() % 5 != 0 && activeSelection == 'minutes'}"></div>
+			<div class="sel-cont-stick"></div>
+		</div>
+		<div class="hours-wrap clock-inner-wrap" ng-click="focusHour()" ng-if="activeSelection == 'hours' || !date">
+			<div ng-repeat="hour in getHoursList()" class="segment-cont" ng-style="{'transform': 'rotate(' + (30 * (hour >= 12 ? hour - 12 : hour)) + 'deg)'}">
+				<button type="button" class="hour" ng-click="selectHour(hour, $event)" ng-class="{'selected': isSelectedHour(hour)}" ng-style="{'transform': 'rotate(-' + (30 * (hour >= 12 ? hour - 12 : hour)) + 'deg)'}" ng-focus="focusHour()" tabindex="-1">{{hour || '00'}}</button>
+			</div>
+		</div>
+		<div class="minutes-wrap clock-inner-wrap" ng-click="focusMinute()" ng-if="activeSelection == 'minutes' && date">
+			<div ng-repeat="minute in getMinutesList()" class="segment-cont" ng-style="{'transform': 'rotate(' + (30 * ($index >= 12 ? $index - 12 : $index)) + 'deg)'}">
+				<button type="button" class="minute" ng-click="selectMinute(minute, $event)" ng-class="{'selected': isSelectedMinute(minute)}" ng-style="{'transform': 'rotate(-' + (30 * ($index >= 12 ? $index - 12 : $index)) + 'deg)'}" ng-focus="focusMinute()" tabindex="-1">{{minute || '00'}}</button>
+			</div>
+		</div>
+	</div>
+</div>

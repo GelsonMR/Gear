@@ -1,0 +1,11 @@
+<li ng-class="{'submenu': gearItem.list && gearItem.list.length, 'gear-active': isOpen, 'with-label': gearItem.gearLabel}">
+	<div class="group-label his-date" ng-if="gearItem.gearLabel">{{gearItem.gearLabel}}</div>
+	<button title="Adicionar favorito" class="gear-mt gear-btn gear-flat gear-icon gear-fav gear-smlr" ng-class="{'gear-fav-add': gearItem.favorite, 'right': gearType == 'top10' || gearType == 'history'}" ng-if="(!gearItem.list || (gearItem.list && !gearItem.list.length)) && (gearType == 'tree' || gearType == 'top10' || (gearType == 'history' && gearItem.gearType != 'label') || !gearType)" ng-click="toggleFavorite(gearItem)"><i class="material-icons">{{gearItem.favorite ? 'star' : 'star_border'}}</i></button>
+	<span ng-if="gearItem.gearType && gearItem.gearType == 'label'">{{gearItem.name}}</span>
+	<a ng-href="{{gearItem.link}}" ng-click="itemClick()" ng-if="!gearItem.gearType">
+		<div ng-if="gearPrimInfo" class="menu-prim-info" ng-class="{'his-hour': gearType == 'history'}" ng-attr-title="{{gearType == 'history' ? (gearPrimInfo | date:'dd/MM/yyyy HH:mm') : ''}}">{{gearType == 'history' ? (gearPrimInfo | date:'HH:mm') : gearPrimInfo}}</div>
+		<!-- <div class="gear-item-name">{{gearPrimInfo | date:'dd/MM/yyyy HH:mm'}}</div> -->
+		<div class="gear-item-name" ng-attr-title="{{itemTitle}}" ng-mouseover="checkItemTitle()">{{gearItem.name}}</div>
+	</a>
+	<button title="Remover favorito" class="gear-mt gear-btn gear-flat gear-icon gear-smlr gear-danger gear-delete" ng-if="(!gearItem.list || (gearItem.list && !gearItem.list.length)) && (gearType == 'favorites')" ng-click="removeFavorite(gearItem)"><i class="material-icons">delete</i></button>
+</li>

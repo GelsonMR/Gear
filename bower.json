@@ -1,0 +1,21 @@
+{
+	"name": "GearFramework",
+	"version": "0.1",
+	"main": "dist/gear-ui.js",
+	"ignore": [
+		"source",
+		"spec",
+		".bowerrc",
+		".gitignore",
+		".jshintignore",
+		".jshintrc",
+		"bower.json",
+		"gruntfile.js",
+		"package.json",
+		"README.md"
+	],
+	"dependencies": {
+		"jquery": ">=2.1.4",
+		"angular": ">=1.5"
+	},
+}

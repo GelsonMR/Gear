@@ -1,0 +1,16 @@
+<div class="gear-form-group">
+	<div class="gear-icon left" ng-style="{'width': gearShape == 'round-rectangle' && 'auto'}">
+		<div class="switch-color-preview gear-mt gear-color{{gearShape && ' ' + gearShape}}" ng-class="{'no-color': !colorSelected}" ng-style="{'background-color': colorSelected ? colorSelected : '#D01716'}" data-color-range="300"></div>
+	</div>
+	<input id="{{gearId}}" type="text" ng-class="gearClass" name="{{gearName}}" ng-readonly="switchOpened" ng-pattern="/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/" class="gear-form-control txt-color-switch gear-not-empty" ng-model="ngModel" ng-focus="switchOpen()" autocomplete="off" ng-style="{'color': gearShape == 'round-rectangle' && 'transparent', 'font-size': gearShape == 'round-rectangle' && '0px'}">
+	<label for="{{gearId}}">Cor</label>
+	<gear-form-transclude></gear-form-transclude>
+	<div class="switch-color" ng-if="switchOpened">
+		<div class="no-color" ng-click="setColorType(null)"></div>
+		<div ng-repeat="colorType in colorTypes" class="gear-mt gear-color" ng-class="colorClass(colorType)" ng-click="setColorType($event, colorType)" ng-dblclick="selectColor($event)"></div>
+		<div class="switch-var" ng-class="{'gear-show':colorTypeSelected}" ng-style="{'top': switchVarTop}" style="top: -47px;">
+			<div class="gear-mt gear-color{{colorTypeSelected != null ? ' ' + colorTypeSelected : ''}}" ng-repeat="colorVariation in colorVariations" ng-class="{'gear-show':checkAccentColor(colorVariation)}" data-color-range="{{colorVariation}}" ng-click="selectColor($event)"></div>
+			<div class="arrow" ng-style="{'margin-left': switchVarArrowLeft}" style="margin-left: 57px;"></div>
+		</div>
+	</div>
+</div>
