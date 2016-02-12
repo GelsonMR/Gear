@@ -9,7 +9,7 @@
     ".jshintignore",
     ".jshintrc",
     "bower.json",
-    "GruntFile.js",
+    "Gruntfile.js",
     "package.json",
     "README.md",
     "dev"
