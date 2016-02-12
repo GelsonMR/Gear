@@ -1,0 +1,23 @@
+{
+  "name": "gear-framework",
+  "version": "0.1",
+  "description": "A angular-based user interface framework. Enjoy!",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GelsonMR/Gear.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GelsonMR/Gear/issues"
+  },
+  "homepage": "https://github.com/GelsonMR/Gear#readme",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.12.0"
+  }
+}
