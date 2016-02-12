@@ -13,7 +13,7 @@
     "GruntFile.js",
     "package.json",
     "README.md",
-    "dev",
+    "dev"
   ],
   "install" : {
     "path" : "dist"
