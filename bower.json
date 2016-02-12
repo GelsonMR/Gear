@@ -1,7 +1,6 @@
 {
   "name": "gear-framework",
   "version": "0.1",
-  "main": "dist/gear-ui.js",
   "ignore": [
     "source",
     "spec",
@@ -15,9 +14,6 @@
     "README.md",
     "dev"
   ],
-  "install" : {
-    "path" : "dist"
-  },
   "dependencies": {
     "jquery": "~2.2.0",
     "angular": "1.5",
