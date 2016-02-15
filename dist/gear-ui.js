@@ -1873,6 +1873,7 @@ angular.module('gearUi', [])
 			if (scope.gearType == 'history') {
 				scope.$watch('gearFavList', function(value){
 					var list = scope.gearList;
+					if (!list) return;
 					for (var i = 0; i < list.length; i++) {
 						if (value) {
 							var found = value.some(function(item){
@@ -1995,6 +1996,7 @@ angular.module('gearUi', [])
 			}
 			// history = $filter('orderBy')(tree, prop, true);;
 		}
+		if (!list) return [];
 		switch (type) {
 			case 'favorites':
 				iterateTreeFavorite(list);
