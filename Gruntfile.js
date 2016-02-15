@@ -23,6 +23,10 @@ module.exports = function(grunt){
 		},
 		uglify: {
 			gear: {
+				options: {
+					// beautify: true,
+					mangle: true
+				},
 				files: {
 					'dist/gear.min.js': ['dev/gear-ui.js', 'dev/gear-templates.js', 'dev/gear.js']
 				}
@@ -39,5 +43,5 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-angular-templates');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.registerTask('default', ['ngtemplates', 'uglify']);
+	grunt.registerTask('default', ['ngtemplates', 'uglify', 'cssmin']);
 }
