@@ -497,7 +497,7 @@ angular.module('gearUi', [])
 			'gearShape': '@',
 			'gearPrimaryInfo': '@'
 		},
-		templateUrl: 'gear-template/color-picker-group',
+		templateUrl: 'gear-templates/color-picker-group',
 		link: function(scope, element, attrs, ctrls, transclude) {
 			element.find('gear-form-transclude').replaceWith(transclude());
 			scope.colorTypes = ['red', 'pink', 'purple', 'deepPurple', 'indigo', 'blue', 'lightBlue', 'cyan', 'teal', 'green', 'lightGreen', 'lime', 'yellow', 'amber', 'orange', 'deepOrange', 'brown', 'grey', 'blueGrey'];
@@ -772,7 +772,7 @@ angular.module('gearUi', [])
 			'gearMin': '=?',
 			'gearMax': '=?'
 		},
-		templateUrl: 'gear-template/date-picker',
+		templateUrl: 'gear-templates/date-picker',
 		link: function(scope, element, attrs, ctrl) {
 
 			scope.$watch('gearError', function(value){
@@ -993,7 +993,7 @@ angular.module('gearUi', [])
 			'gearMin': '=?',
 			'gearMax': '=?'
 		},
-		templateUrl: 'gear-template/date-picker-group',
+		templateUrl: 'gear-templates/date-picker-group',
 		replace: true,
 		link: function(scope, element, attrs, ctrls) {
 			'autocomplete' in attrs && element.find('input:first').attr('autocomplete', attrs.autocomplete);
@@ -1350,7 +1350,7 @@ angular.module('gearUi', [])
 			'gearBackgroundColor': '=?',
 			'gearOptions': '=?'
 		},
-		templateUrl: 'gear-template/user-area',
+		templateUrl: 'gear-templates/user-area',
 		link: function(scope, element, attrs){
 			element.bind('click', function(){
 				scope.openMenu = !scope.openMenu;
@@ -1467,7 +1467,7 @@ angular.module('gearUi', [])
 .directive('gearSnackContainer', function(gearSnack, gearColor, $timeout){
 	return {
 		restrict: 'E',
-		templateUrl: 'gear-template/snack-container',
+		templateUrl: 'gear-templates/snack-container',
 		link: function(scope, element, attrs) {
 			var timeout;
 			scope.activeBar;
@@ -1500,7 +1500,7 @@ angular.module('gearUi', [])
 .directive('gearSnackBar', function(gearSnack){
 	return {
 		restrict: 'E',
-		templateUrl: 'gear-template/snack-bar',
+		templateUrl: 'gear-templates/snack-bar',
 		scope: {
 			'gearBar': '='
 		},
@@ -1528,7 +1528,7 @@ angular.module('gearUi', [])
 			'gearErrorMessage': '=?',
 			'activeSelecion': '=?'
 		},
-		templateUrl: 'gear-template/time-picker',
+		templateUrl: 'gear-templates/time-picker',
 		link: function(scope, element, attrs, ctrl) {
 			scope.hourType = 24;
 			scope.activeSelection = !scope.activeSelection ? 'hours' : scope.activeSelection;
@@ -1738,7 +1738,7 @@ angular.module('gearUi', [])
 			'gearMin': '=?',
 			'gearMax': '=?'
 		},
-		templateUrl: 'gear-template/time-picker-group',
+		templateUrl: 'gear-templates/time-picker-group',
 		replace: true,
 		link: function(scope, element, attrs, ctrls) {
 			'autocomplete' in attrs && element.find('input:first').attr('autocomplete', attrs.autocomplete);
@@ -1833,7 +1833,7 @@ angular.module('gearUi', [])
 			'gearOnFavorite': '=?',
 			'gearOnSelect': '=?'
 		},
-		templateUrl: 'gear-template/main-menu',
+		templateUrl: 'gear-templates/main-menu',
 		controller: function($scope){
 			$scope.gearType = $scope.gearType ? $scope.gearType : 'tree';
 			this.favorite = function(target){
@@ -1867,7 +1867,7 @@ angular.module('gearUi', [])
 			'gearFavList': '=?',
 			'gearOnSelect': '=?'
 		},
-		templateUrl: 'gear-template/main-menu-list',
+		templateUrl: 'gear-templates/main-menu-list',
 		link: function(scope, element, attrs) {
 			scope.filteredList = [];
 			if (scope.gearType == 'history') {
@@ -1902,7 +1902,7 @@ angular.module('gearUi', [])
 			'gearPrimInfo': '=?',
 			'gearOnSelect': '=?'
 		},
-		templateUrl: 'gear-template/main-menu-item',
+		templateUrl: 'gear-templates/main-menu-item',
 		link: function(scope, element, attrs, ctrl) {
 			if (scope.gearItem && scope.gearItem.list) {
 				element.append('<gear-main-menu-list class="gear-slide" gear-list="gearItem.list" gear-type="gearType" ng-hide="!isOpen" gear-on-select="gearOnSelect" style="transition-duration: 200ms"></gear-main-menu-list>');
