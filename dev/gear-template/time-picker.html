@@ -6,7 +6,7 @@
 	<div class="time-info" ng-if="!gearError && !!date">
 		<div class="time">
 			<div class="time-part selected-hour" ng-class="{'active': activeSelection == 'hours'}" ng-focus="activeHours()" ng-keydown="changeHour($event)" tabindex="0">{{date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}}</div>
-			:
+			<span>:</span>
 			<div class="time-part selected-minute" ng-class="{'active': activeSelection == 'minutes'}" ng-focus="activeMinutes()" ng-keydown="changeMinute($event)" tabindex="0">{{date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}}</div>
 		</div>
 	</div>

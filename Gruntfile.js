@@ -2,7 +2,7 @@ module.exports = function(grunt){
 	grunt.initConfig({
 		ngtemplates: {
 			'gearUi': {
-				cwd: 'dev/template',
+				cwd: 'dev/gear-template',
 				src: '*.html',
 				dest: 'dev/gear-templates.js',
 				options: {
@@ -16,15 +16,20 @@ module.exports = function(grunt){
 						removeScriptTypeAttributes:     true,
 						removeStyleLinkTypeAttributes:  true
 					},
-					url: function(url) { return url.replace('.html', ''); },
 					prefix: 'gear-templates'
 				},
+			}
+		},
+		copy: {
+			main: {
+				src: 'dev/gear-templates.js',
+				dest: 'dist/gear-templates.js'
 			}
 		},
 		uglify: {
 			gear: {
 				options: {
-					// beautify: true,
+					beautify: true,
 					mangle: true
 				},
 				files: {
@@ -43,5 +48,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-angular-templates');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
-	grunt.registerTask('default', ['ngtemplates', 'uglify', 'cssmin']);
+	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.registerTask('default', ['ngtemplates', 'copy', 'uglify', 'cssmin']);
 }
