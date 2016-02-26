@@ -17,7 +17,7 @@
 	box-sizing: border-box;
 }
 
-html {
+html.gear-structure {
 	font-family: 'Roboto', sans-serif;
 	background-color: #FAFAFA;
 	color: rgba(0,0,0,0.9);
@@ -28,16 +28,21 @@ html {
 	-webkit-font-smoothing: antialiased;
 }
 
-body {
+body.gear-structure {
 	height: 100%;
 	overflow: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+.gear-structure h1,
+.gear-structure h2,
+.gear-structure h3,
+.gear-structure h4,
+.gear-structure h5,
+.gear-structure h6 {
 	font-weight: 500;
 }
 
-p {
+.gear-structure p {
 	margin: 15px 0;
 }
 
